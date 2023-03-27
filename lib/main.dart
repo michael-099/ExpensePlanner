@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
               width: double.infinity,
               child: Card(
                 child: Text("chart"),
-                color: Colors.amber,
+                color: Color.fromARGB(255, 171, 206, 172),
               ),
             ),
             Column(
@@ -32,9 +32,41 @@ class HomePage extends StatelessWidget {
                   child: Card(
                     child: Row(
                       children: <Widget>[
-                        Container(child: Text("${e.expense}")),
+                        Container(
+                          child: Text(
+                            "${e.expense}",
+                            style: TextStyle(
+                              color: Colors.green.shade600,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.green.shade100, width: 2),
+                          ),
+                          padding: EdgeInsets.all(10),
+                        ),
                         Column(
-                          children: [Text("${e.name}"), Text("${e.date}")],
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${e.name}",
+                              style: TextStyle(
+                                  color: Colors.green.shade700,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 18),
+                            ),
+                            Text(
+                              "${e.date}",
+                              style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12),
+                            )
+                          ],
                         ),
                       ],
                     ),
