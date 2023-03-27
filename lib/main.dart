@@ -10,27 +10,40 @@ class HomePage extends StatelessWidget {
         id: "003", name: "Netflix ", expense: 19.99, date: DateTime.now())
   ];
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Expense Planner")),
-        body: Column(children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              child: Text("chart"),
-              color: Colors.amber,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text("chart"),
+                color: Colors.amber,
+              ),
             ),
-          ),
-          Column(
-            children: transaction.map((e) {
-              return Container(child: Card(
-                child: Text(e.name ?? ""),
-              ),width:double.infinity,
-              height: 60,);
-            }).toList(),
-          )
-        ]),
+            Column(
+              children: transaction.map((e) {
+                return Container(
+                  child: Card(
+                    child: Row(
+                      children: <Widget>[
+                        Container(child: Text('price')),
+                        Column(
+                          children: [Text("${e.expense}"), Text("${e.date}")],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
+            )
+          ],
+        ),
       ),
     );
   }
