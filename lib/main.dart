@@ -32,9 +32,9 @@ class HomePage extends StatelessWidget {
                   child: Card(
                     child: Row(
                       children: <Widget>[
-                        Container(child: Text('price')),
+                        Container(child: Text("${e.expense}")),
                         Column(
-                          children: [Text("${e.expense}"), Text("${e.date}")],
+                          children: [Text("${e.name}"), Text("${e.date}")],
                         ),
                       ],
                     ),
