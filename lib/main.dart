@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import './transaction.dart';
 
 class HomePage extends StatelessWidget {
-  List<Transaction> transaction =[
-    Transaction( id:"001" ,name:"school fee",expense:999.99, date:DateTime.now()),
-    Transaction( id:"002" ,name:"rent",expense:899.09, date:DateTime.now()),
-    Transaction( id:"003" ,name:"Netflix ",expense:19.99, date:DateTime.now())];
-  
+  List<Transaction> transaction = [
+    Transaction(
+        id: "001", name: "school fee", expense: 999.99, date: DateTime.now()),
+    Transaction(id: "002", name: "rent", expense: 899.09, date: DateTime.now()),
+    Transaction(
+        id: "003", name: "Netflix ", expense: 19.99, date: DateTime.now())
+  ];
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -19,9 +22,13 @@ class HomePage extends StatelessWidget {
               color: Colors.amber,
             ),
           ),
-          Container(
-            width: double.infinity,
-            child: Card(child: Text("hllo")),
+          Column(
+            children: transaction.map((e) {
+              return Container(child: Card(
+                child: Text(e.name ?? ""),
+              ),width:double.infinity,
+              height: 60,);
+            }).toList(),
           )
         ]),
       ),
