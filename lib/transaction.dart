@@ -3,6 +3,6 @@ class Transaction {
   final String? id;
   final String? name;
   final double? expense;
-  final DateTime? date;
-  Transaction({this.id, this.name, this.expense, this.date});
+  final DateTime date;
+  Transaction({this.id, this.name, this.expense, required this.date});
 }

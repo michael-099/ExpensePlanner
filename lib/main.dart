@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   List<Transaction> transaction = [
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text("Expense Planner")),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -24,6 +25,26 @@ class HomePage extends StatelessWidget {
               child: Card(
                 child: Text("chart"),
                 color: Color.fromARGB(255, 171, 206, 172),
+              ),
+            ),
+            Card(
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'amount'),
+                    ),
+                    TextButton(
+                      child: Text("Add transaction"  ),
+
+                   onPressed: () {},
+                    )
+                  ],
+                ),
               ),
             ),
             Column(
@@ -34,7 +55,7 @@ class HomePage extends StatelessWidget {
                       children: <Widget>[
                         Container(
                           child: Text(
-                            "${e.expense}",
+                            "\$${e.expense}",
                             style: TextStyle(
                               color: Colors.green.shade600,
                               fontSize: 20,
@@ -60,7 +81,7 @@ class HomePage extends StatelessWidget {
                                   fontSize: 18),
                             ),
                             Text(
-                              "${e.date}",
+                              DateFormat.yMMMd().format(e.date),
                               style: TextStyle(
                                   color: Colors.grey.shade700,
                                   fontWeight: FontWeight.w400,
