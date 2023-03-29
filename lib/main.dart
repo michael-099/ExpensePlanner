@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
     Transaction(
         id: "003", name: "Netflix ", expense: 19.99, date: DateTime.now())
   ];
-
+  String TFtitle = '';
+  String TFamount = '';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,14 +35,18 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(labelText: 'Title'),
+                      onChanged: (value) => TFtitle = value,
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'amount'),
+                      onChanged: (value) => TFamount = value,
                     ),
                     TextButton(
-                      child: Text("Add transaction"  ),
-
-                   onPressed: () {},
+                      child: Text("Add transaction"),
+                      onPressed: () {
+                        print(TFtitle);
+                        print(TFamount);
+                      },
                     )
                   ],
                 ),
