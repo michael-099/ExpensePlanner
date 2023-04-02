@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'models/transaction.dart';
 import 'package:intl/intl.dart';
-import 'widgets/transaction.dart';
-import 'widgets/input.dart';
-
+import './widgets/user_transactions.dart';
 class HomePage extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,14 +14,12 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: Card(
+              child: const Card(
                 child: Text("chart"),
                 color: Color.fromARGB(255, 171, 206, 172),
               ),
             ),
-            input(),
-            //  mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-            transaction()
+            user_transactions()
           ],
         ),
       ),
