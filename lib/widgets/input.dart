@@ -27,6 +27,6 @@ class input extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ); 
   }
 }
